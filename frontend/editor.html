@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Codepad</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <script src="@Url.Content("../js/codepad.js")"></script>
+    <script>
+        $(document).ready(function() {
+            hljs.initHighlighting();
+            React.render(<MarkdownEditor />, $("#mountPoint"));
+        });
+    </script>
 </head>
 <body>
+
+<div class="common all" style="display: block;">
+  <h2>Python</h2>
+    <pre><code class="python hljs">
+@decorator(param=1)
+def f(x):
+    """ Syntax highlighting demo
+        @param x Parameter """
+    s = ("test", 2+3, {"a": "b"}, x)  # comment
+    print(s[0].lower())
+
+class Foo:
+    def __init__(self):
+        pass
+    </code></pre>
+</div>
+
+<div id="mountPoint"></div>
 
 </body>
 </html>
